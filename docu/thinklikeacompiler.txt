@@ -1,0 +1,88 @@
+##########################################################################
+What is the result of compiling and running of the code snippets below
+#########################################################################
+
+#########################################################################
+#First snippet
+##########################################################################
+
+List<String> list = new ArrayList<>();
+list.add("A");
+list.add("B");
+list.add("C");
+list.add("D");
+
+for (String item : list) {
+    if ("B".equals(item)) {
+        list.remove(item);
+    }
+
+}
+System.out.println(list);
+
+
+###########################################################################
+#Second snippet
+##########################################################################
+
+class Parent {
+    static {
+        System.out.println("Parent static block");
+    }
+
+    {
+        System.out.println("Parent instance block");
+    }
+
+    Parent() {
+        System.out.println("Parent constructor");
+    }
+}
+
+class Child extends Parent {
+    static {
+        System.out.println("Child static block");
+    }
+
+    {
+        System.out.println("Child instance block");
+    }
+
+    Child() {
+        System.out.println("Child constructor");
+    }
+}
+
+public class InitOrderTest {
+    public static void main(String[] args) {
+        new Child();
+        System.out.println("----");
+        new Child();
+    }
+}
+
+##########################################################################
+#Third snippet
+##########################################################################
+
+public class PecsQuestion {
+    public static <T> void copy(List<T> source, List<T> destination) {
+        for (T item : source) {
+            destination.add(item);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Integer> ints = Arrays.asList(1, 2, 3);
+        List<Number> nums = new ArrayList<>();
+
+        copy(ints, nums);
+        System.out.println(nums);
+    }
+}
+
+
+
+
+
+ 
